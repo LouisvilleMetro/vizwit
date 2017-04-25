@@ -6,9 +6,9 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 An interactive data visualization tool. VizWit uses a [JSON config file](https://gist.github.com/601224472a5d53cbb908) to generate 
-interactive charts that cross-filter one another. It currently supports data hosted in [Socrata](https://socrata.com) and 
-[Carto](http://carto.com), which includes open data provided by cities such as [Philadelphia](http://opendataphilly.org),
-[Chicago](https://data.cityofchicago.org/), and [San Francisco](https://data.sfgov.org/)). Data that’s hosted elsewhere can be
+interactive charts that cross-filter one another. It currently supports data hosted in [Socrata](https://socrata.com), 
+[Carto](http://carto.com), and [DKAN](http://getDKAN.com), which includes open data provided by cities such as [Philadelphia](http://opendataphilly.org),
+[Chicago](https://data.cityofchicago.org/), [Louisville](https://data.louisvilleky.gov/), and [San Francisco](https://data.sfgov.org/)). Data that’s hosted elsewhere can be
 supported by [adding a new data provider](https://github.com/timwis/vizwit/wiki/Adding-a-provider).
 
 [![screencast](http://i.imgur.com/4gTXNFK.gif)](http://vizw.it/?gist=51db593dc0537d1a3f05)
