@@ -86,7 +86,8 @@ module.exports = BaseProvider.extend({
 
     // Get the URL
     //var url = this.url() + '&format=csv'
-    // DKAN returns only JSON, by default
+    // Drupal does not have CSV export: https://www.drupal.org/node/1699450
+	// DKAN would have to be extended to allow CSV: docs.getdkan.com/en/latest/apis/datastore-api.html#response-formats
     var url = this.url() 
 
     // Set the value back
