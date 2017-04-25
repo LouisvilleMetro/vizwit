@@ -19,7 +19,7 @@ module.exports = BaseFields.extend({
     return [
       'https://',
       this.config.domain,
-      '/api/dataset/search?',
+      '/api/action/dataset/search?',
       'resource_id=' + this.config.dataset + ''
     ].join('')
   },

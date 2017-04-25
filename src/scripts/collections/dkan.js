@@ -5,6 +5,8 @@ var BaseProvider = require('./baseprovider')
 var squel = require('squel')
 var DKANFields = require('./dkan-fields')
 
+// DKAN API Docs http://docs.getdkan.com/en/latest/apis/datastore-api.html
+
 module.exports = BaseProvider.extend({
   initialize: function (models, options) {
     BaseProvider.prototype.initialize.apply(this, arguments)
@@ -46,7 +48,7 @@ module.exports = BaseProvider.extend({
       if (this.config.offset) query.offset(this.config.offset)
 
       // Order by
-      query.order(this.config.order || 'cartodb_id', '')
+      query.order(this.config.order || 'ID', '')
     }
 
     // Where
@@ -54,7 +56,7 @@ module.exports = BaseProvider.extend({
       // Parse filter expressions into basic SQL strings and concatenate
       filters = _.map(filters, function (filter) {
         return this.parseExpression(filter.field, filter.expression)
-      }, this).join(' and ')
+      }, this).join('&')
       query.where(filters)
     }
 
@@ -70,7 +72,7 @@ module.exports = BaseProvider.extend({
     query.limit(this.config.limit || '5000')
 
     var output = 'https://' + this.config.domain +
-           '/api/v2/sql?q=' + query.toString()
+           '/api/action/datastore/search.json?' + query.toString()
 
     return output
   },
@@ -83,7 +85,9 @@ module.exports = BaseProvider.extend({
     this.config.limit = null // defaults to 5000
 
     // Get the URL
-    var url = this.url() + '&format=csv'
+    //var url = this.url() + '&format=csv'
+    // DKAN returns only JSON, by default
+    var url = this.url() 
 
     // Set the value back
     this.config.limit = oldLimit
